@@ -1,4 +1,4 @@
-## Some important code packets relating to various conepts
+## Some important code packets relating to various concepts
 
 ### Using Default parameters 
 ```python
@@ -17,6 +17,7 @@ print(fun1(5))
 print(fun2(3))
 print(fun2(5))
   ```
+
 ### Using variable number of parameters
 ``` python
 def variable_arg(*arg):
@@ -32,4 +33,15 @@ variable_arg(1,"a")
 variable_arg(*a1,5,6)
 variable_arg(a1,67)
 variable_kwrds(a='apple',b='ball',**a2) #doesnt work without **
-    ```
+   ```
+### Documentation
+```python
+def my_function():
+     """Do nothing, but document it.
+
+     No, really, it doesn't do anything.
+    """
+    pass
+print(my_function.__doc__)
+```
+    
