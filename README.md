@@ -8,10 +8,10 @@ The keyboard should be able to read user's input and give corresponding output.
 ## Insights into the Virtual Keyboard Project
 
 *24-03-20*
-+ Revised Python syntax and practised few problems
++ Revised Python syntax and practised [few problems](https://www.codechef.com/users/sudhansh6).
 
 *27-03-20*
-+ As of today, Virtual Ubuntu is usable and basics of GitHub have been looked into.
++ As of today, Virtual Ubuntu is usable and [basics of GitHub](https://guides.github.com/activities/hello-world/) have been looked into.
 
 *29-03-20*
 + I learnt the [basic syntax of markdown](https://www.markdownguide.org) and made a summary of the syntax.
