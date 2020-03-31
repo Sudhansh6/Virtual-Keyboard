@@ -1,4 +1,10 @@
 # Virtual-Keyboard
+
+## Intro
+
+The goal of this project is to build a keyboard that projects a layout onto any surface and takes input using touch-recognition.
+The keyboard should be able to read user's input and give corresponding output.
+
 ## Insights into the Virtual Keyboard Project
 
 *24-03-20*
@@ -13,3 +19,4 @@
 + I looked into more features that python provides from [Pythonlink1](https://docs.python.org/3/tutorial/introduction.html) 
 
 *30-03-20*
++ My team for the project has been assigned.
