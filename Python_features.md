@@ -17,6 +17,17 @@ When possible, put comments on a line of their own.
 - sorted(set) returns sorted set without altering the original set.
 - Comparisons can be chained (**and** between the condiions).
 - When sequences are compared, it is done in lexicographic order.
+- Use `write()` (similar to `print()`) to write into a file.
+- Use `str()` and `repr()` to convert stuff(even tuples) into strings(`repr()` prints string quotes and backslashes too).
+- !s,!r,!a, : can be used with string literals.
+- positionals and keywords are applicable in string formatting literals(`str.format()`).
+- `f = open ('file_name','w')` r - reading, w -writing, a - appending, r+ - reading and writing, b - binary, r is assumed if void.
+- You can loop over lines in a file using `for line in f: `. You can also use `list(f)` or `f.readLines()` to read all lines.
+- `f.write(string)` writes the contents of string to the file, returning the number of characters written.
+- `f.tell()` returns an integer giving the file object’s current position in the file represented as number of bytes from the beginning of the file when in binary mode and an opaque number when in text mode.
+- To change the file object’s position, use f.seek(offset, whence). The position is computed from adding offset to a reference point; the reference point is selected by the whence argument. A whence value of 0 measures from the beginning of the file, 1 uses the current file position, and 2 uses the end of the file as the reference point. whence can be omitted and defaults to 0, using the beginning of the file as the reference point.
+- Python supports nested functions.
+
 
 ## Some important code packets relating to various concepts
 
@@ -62,7 +73,7 @@ variable_arg(a1,67)
 variable_kwrds(a='apple',b='ball',**a2) #doesnt work without **
    ```
  > Output :  
-``` 
+ ``` 
  1  
  a  
  1  
@@ -109,6 +120,88 @@ Annotations: {'ham': <class 'str'>, 'return': <class 'str'>, 'eggs': <class 'str
 Arguments: spam eggs
 'spam and eggs'
 ```
+### Formatted string literals
+To use formatted string literals, begin a string with f or F before the opening quotation mark or triple quotation mark. Inside this string, you can write a Python expression between { and } characters that can refer to variables or literal values.
+1. ```python
+	year = 2016
+	event = 'Referendum'
+	f'Results of the {year} {event}'
+	```
+	> Output :  
+	```
+	'Results of the 2016 Referendum'
+	```
+2. ```python
+	yes_votes = 42_572_654
+	no_votes = 43_132_495
+	percentage = yes_votes / (yes_votes + no_votes)
+	'{:-9} YES votes  {:2.2%}'.format(yes_votes, percentage)
+	```
+	>Output : 
+	``` ' 42572654 YES votes  49.67%' ```
+### File reading 
+1.	```python
+	with open('workfile') as f:
+	    read_data = f.read()
+
+	# We can check that the file has been automatically closed.
+	f.closed
+	```
+	> Output :  
+	``` True ```
+2.	```python
+	f.read()
+	f.read()
+	```
+	> Output :  
+	```
+	' This is the entire file.\n'
+	''
+	```
+3.	```python
+	f.readline()
+	f.readline()
+	f.readline()
+	```
+	> Output : 
+	```
+	'This is the first line.\n'
+	'Second line.\n'
+	''
+	```
+### Exception Handling
+1.	```python
+	while True:
+	    try:
+		x = int(input("Please enter a number: "))
+		break
+	    except ValueError:
+		print("Oops!  That was no valid number.  Try again...")
+	```
+2. 	```python
+	except (RuntimeError, TypeError, NameError):
+	pass
+	```
+3. >
+	```python
+	class B(Exception):
+	    pass
+	class C(B):
+	    pass
+	class D(C):
+	    pass
+
+	for cls in [B, C, D]:
+	    try:
+		raise cls()
+	    except D:
+		print("D")
+	    except C:
+		print("C")
+	    except B:
+		print("B")
+	```
+
 ---
 ## Concepts
 - ### Lists and inbuilt functions ``[]``
@@ -184,3 +277,4 @@ Arguments: spam eggs
     for q, a in zip(questions, answers):
        print('What is your {0}?  It is {1}.'.format(q, a))
      ```
+ - ### [Errors and Exceptions](https://docs.python.org/3/tutorial/errors.html)
