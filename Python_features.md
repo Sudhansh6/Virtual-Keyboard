@@ -27,6 +27,10 @@ When possible, put comments on a line of their own.
 - `f.tell()` returns an integer giving the file object’s current position in the file represented as number of bytes from the beginning of the file when in binary mode and an opaque number when in text mode.
 - To change the file object’s position, use f.seek(offset, whence). The position is computed from adding offset to a reference point; the reference point is selected by the whence argument. A whence value of 0 measures from the beginning of the file, 1 uses the current file position, and 2 uses the end of the file as the reference point. whence can be omitted and defaults to 0, using the beginning of the file as the reference point.
 - Python supports nested functions.
+- The instantiation operation creates an empty object. Many classes like to create objects with instances customized to a specific initial state. Therefore a class may define a special method named `__init__()`(CONSTRUCTOR).
+- `self` keyword is used inside functions defined for class. 
+- “Private” instance variables that cannot be accessed except from inside an object don’t exist in Python. However, there is a convention that is followed by most Python code: a name prefixed with an underscore (e.g. _spam) should be treated as a non-public part of the API.
+-  `import numpy as n`. Numpy is just and enhanced version of list which is faster and easier to use. Calculations on each of the elements can be done in a single expression. `b[b>23]`
 
 
 ## Some important code packets relating to various concepts
@@ -201,6 +205,8 @@ To use formatted string literals, begin a string with f or F before the opening 
 	    except B:
 		print("B")
 	```
+### [Numpy](https://www.learnpython.org/en/Numpy_Arrays)
+### [Panda](https://www.learnpython.org/en/Pandas_Basics)
 
 ---
 ## Concepts
@@ -278,3 +284,86 @@ To use formatted string literals, begin a string with f or F before the opening 
        print('What is your {0}?  It is {1}.'.format(q, a))
      ```
  - ### [Errors and Exceptions](https://docs.python.org/3/tutorial/errors.html)
+ 
+ - ### Scopes and Namespaces
+	```python
+	def scope_test():
+		def do_local():
+			spam = "local spam"
+
+		def do_nonlocal():
+			nonlocal spam
+			spam = "nonlocal spam"
+
+		def do_global():
+			global spam
+			spam = "global spam"
+
+		spam = "test spam"
+		do_local()
+		print("After local assignment:", spam)
+		do_nonlocal()
+		print("After nonlocal assignment:", spam)
+		do_global()
+		print("After global assignment:", spam)
+
+	scope_test()
+	print("In global scope:", spam)
+	```
+	> Output :  
+	```
+	After local assignment: test spam
+	After nonlocal assignment: nonlocal spam
+	After global assignment: nonlocal spam
+	In global scope: global spam
+	```
+
+ - ### Classes and Inheritance
+ 	- 
+	```python
+	class Demo :
+	a=3
+	def printer():
+		print('This is a statement.')
+
+	foilage= Demo.printer
+	Demo.a=5
+	print(Demo.a) # prints 5
+	foilage()	
+
+	test1 = Demo
+	test2 = Demo()
+	print(Demo.a,test1.a,test2.a)
+	Demo.a=10
+	print(Demo.a,test1.a,test2.a)
+	test1.a=20
+	print(Demo.a,test1.a,test2.a)
+	test2.a=30
+	print(Demo.a,test1.a,test2.a)
+	```
+	> Output :  
+	```
+	5
+	This is a statement.
+	5 5 5
+	10 10 10
+	20 20 20
+	20 20 30
+	```
+	- Use `isinstance()` to check an instance’s type:  
+	`isinstance(obj, int)` will be `True` only if `obj.__class__` is `int` or some class derived from `int`.  
+      Use `issubclass()` to check class inheritance:  
+	`issubclass(bool, int)` is `True` since `bool` is a subclass of `int`. However, `issubclass(float, int)` is `False` since `float` is not a subclass of `int`.
+	- **`class DerivedClassName(modname.BaseClassName):`**.
+	- `class DerivedClassName(Base1, Base2, Base3):`
+	- 
+	```python
+	class Employee:
+    pass
+
+	john = Employee()  # Create an empty employee record
+	# Fill the fields of the record
+	john.name = 'John Doe'
+	john.dept = 'computer lab'
+	john.salary = 1000
+	```
