@@ -63,7 +63,7 @@ If the word or phrase you want to denote as code includes one or more backticks,
 _________________
 [This is a link]<www.google.com>
 
-[![An old rock in the desert](/assets/images/shiprock.jpg "Shiprock, New Mexico by Beau Rogers")](www.image.fom)
+![An old rock in the desert](/assets/images/shiprock.jpg "Shiprock, New Mexico by Beau Rogers")(www.image.fom)
 
 To display a literal character that would otherwise be used to format text in a Markdown document, add a backslash (\) in front of the character.
 
