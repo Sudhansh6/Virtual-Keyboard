@@ -20,3 +20,31 @@ The keyboard should be able to read user's input and give corresponding output.
 
 *30-03-20*
 + My team for the project has been assigned.
+
+*31-03-20*
++ Revised Python syntax.
+
+*02-04-20*
++ Read about Errors and Exceptions in Python.
++ Read about Numpy and Pandas libraries.
+
+*03-04-20*
++ Read about more functions in Numpy library.
++ Started working on Assignment 1 - Problem 2.
+
+*04-04-20*
++ Finished Assignment 1 - Problem 2.
+
+*06-04-20*
++ Finished Assignment 1 - Problem 3 and Problem 4(i).
++ Revised all Numpy tools and learned to use them effectively.
++ Read about PIL (pillow) library and tools to edit images.
+
+*07-04-20*
++ Went through the solutions of Assignment 1.
+
+*09-04-20*
++ [ ] Should read about command line inputs.
++ [ ] Revise all the tools used in solutions.
++ [ ] Make Numpy and PIL notes.
++ [ ] Start OpenCV.
