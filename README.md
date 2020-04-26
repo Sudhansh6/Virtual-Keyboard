@@ -43,8 +43,15 @@ The keyboard should be able to read user's input and give corresponding output.
 *07-04-20*
 + Went through the solutions of Assignment 1.
 
-*09-04-20*
-+ [ ] Should read about command line inputs.
-+ [ ] Revise all the tools used in solutions.
-+ [ ] Make Numpy and PIL notes.
-+ [ ] Start OpenCV.
+*09-04-20 to 19-04-20*
++ Finished OpenCV tutorials on Geeks for geeks
++ Watched OpenCV tutorial videos
++ Wrote OpenCV programs testing its features
+
+*23-04-20 to 26-04-20*
++ Started writing code for Invisibilty cloak
++ worked in RGB colorspace
++ Looked into the code in HSV color space
+
+
+
