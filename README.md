@@ -46,7 +46,7 @@ The keyboard should be able to read user's input and give corresponding output.
 *09-04-20 to 19-04-20*
 + Finished [OpenCV tutorials on Geeks for geeks](https://www.geeksforgeeks.org/opencv-python-tutorial/)
 + Watched [OpenCV tutorial videos](https://www.youtube.com/watch?v=kdLM6AOd2vc&list=PLS1QulWo1RIa7D1O6skqDQ-JZ1GGHKK-K)
-+ Wrote OpenCV programs testing its features
++ Wrote OpenCV programs testing its features. Check them [here](https://github.com/Sudhansh6/Virtual-Keyboard/tree/master/OpenCV)
 
 *23-04-20 to 26-04-20*
 + Started writing code for Invisibilty cloak
@@ -54,7 +54,7 @@ The keyboard should be able to read user's input and give corresponding output.
 + Looked into the code in HSV color space
 
 *27-04-20 to 29-04-20*
-+ Finished code for Invisibility Cloak
-+ Finished OpenCV part of Sudoku code
++ Finished code for [Invisibility Cloak](https://github.com/Sudhansh6/Virtual-Keyboard/blob/master/cloak.py)
++ Finished OpenCV part of [Sudoku code](https://github.com/Sudhansh6/Virtual-Keyboard/blob/master/sudoku.py)
 
 
