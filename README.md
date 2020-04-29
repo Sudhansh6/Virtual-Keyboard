@@ -44,8 +44,8 @@ The keyboard should be able to read user's input and give corresponding output.
 + Went through the solutions of Assignment 1.
 
 *09-04-20 to 19-04-20*
-+ Finished OpenCV tutorials on Geeks for geeks
-+ Watched OpenCV tutorial videos
++ Finished [OpenCV tutorials on Geeks for geeks](https://www.geeksforgeeks.org/opencv-python-tutorial/)
++ Watched [OpenCV tutorial videos](https://www.youtube.com/watch?v=kdLM6AOd2vc&list=PLS1QulWo1RIa7D1O6skqDQ-JZ1GGHKK-K)
 + Wrote OpenCV programs testing its features
 
 *23-04-20 to 26-04-20*
@@ -53,5 +53,8 @@ The keyboard should be able to read user's input and give corresponding output.
 + worked in RGB colorspace
 + Looked into the code in HSV color space
 
+*27-04-20 to 29-04-20*
++ Finished code for Invisibility Cloak
++ Finished OpenCV part of Sudoku code
 
 
