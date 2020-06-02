@@ -91,7 +91,7 @@ while(True):
 
 	cv2.warpPerspective(board,M,(size*9,size*9),board, cv2.WARP_INVERSE_MAP,cv2.BORDER_TRANSPARENT)
 	# cv2.imshow('putback',board)
-	if (cv2.waitKey(0)==ord('q') ):
+	if (cv2.waitKey(0)==ord('q')):
 		break
 
 cv2.destroyAllWindows()
