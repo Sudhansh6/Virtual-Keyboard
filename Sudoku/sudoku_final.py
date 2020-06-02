@@ -11,6 +11,10 @@ lb = pickle.loads(open('simple_nn_lb.pickle', "rb").read())
 pts2 = np.float32([[0,0],[size*9,0],[size*9,size*9],[0,size*9]])
 
 def preprocess(frame):
+	'''
+	This function takes the frame as input and returns 
+	the thresholded image along with coordinates of corners of the board.
+	'''
 	gray = cv2.cvtColor(board,cv2.COLOR_BGR2GRAY)
 	blur = cv2.GaussianBlur(gray,(3,3),0)
 	thresh = cv2.adaptiveThreshold(blur, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
@@ -47,20 +51,26 @@ def preprocess(frame):
 	return (np.float32(a[c]),thresh)
 
 def extract(board_cropped,thresh_cropped):
+	'''
+	This function slices the board (board_cropped and thresh_cropped) 
+	into 81 pieces and detects the number in each place. It returns the
+	array consisting the number at each position of the board
+	'''
 	numbers,x,y = [],size,size
 	thresh_cropped = cv2.cvtColor(thresh_cropped,cv2.COLOR_GRAY2BGR)
 	for i in range(9):
-		for j in range(1):
+		for j in range(9):
 			y1, y2, x1, x2 = i*y,(i+1)*y,j*x,(j+1)*x
-			# print(y1,y2,x1,x2)
 			cv2.imshow(str(i)+' '+str(j),board_cropped[y1:y2,x1:x2].copy())
 			img = board_cropped[y1:y2,x1:x2].copy().astype("float") / 255.0
 			img = img.flatten()
 			img = img.reshape((1, img.shape[0]))
 			xyz = thresh_cropped[y1:y2,x1:x2].copy()
-
+			# The image has to be flattened in order to be given as input to model.
+			# This if condition checks if the given slot has a number in it or not.
 			if(np.sum(xyz>0)<150):
-				continue
+				numbers.append((i,j,0))
+			# If a slot doesn't have a number then 0 is given as input.
 			prediction = model.predict(img)
 			label = lb.classes_[prediction.argmax(axis=1)[0]]
 			print(str(i)+"X"+str(j)+" = "+str(label))
