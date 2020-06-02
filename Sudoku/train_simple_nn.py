@@ -1,3 +1,10 @@
+'''
+This program generates a model for predicting numbers from images.
+The dataset must be stored in a folder named 'dataset'.
+Implementation :  
+python3.8 train_simple_nn.py --dataset dataset --model simple_nn.model --label-bin simple_nn_lb.pickle --plot simple_nn_plot.png
+'''
+
 # set the matplotlib backend so figures can be saved in the background
 import matplotlib
 matplotlib.use("Agg")
@@ -18,7 +25,6 @@ import cv2
 import os
 
 # construct the argument parser and parse the arguments
-# python3.8 train_simple_nn.py --dataset dataset --model simple_nn.model --label-bin simple_nn_lb.pickle --plot simple_nn_plot.png
 ap = argparse.ArgumentParser()
 ap.add_argument("-d", "--dataset", required=True,
 	help="path to input dataset of images")
