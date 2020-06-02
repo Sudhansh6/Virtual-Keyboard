@@ -12,6 +12,10 @@ fourcc = cv2.VideoWriter_fourcc(*'XVID')
 out = cv2.VideoWriter('output.avi',fourcc,20,(640,480))
 
 def crop(thresh,old_pts):
+	'''
+	This function is modified to detect the corners of 
+	heading which consists the name of the keyboard to be read.
+	'''
 	contours,_ = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_NONE)
 	sorted_contours = sorted(contours, key=lambda x: cv2.contourArea(x),reverse = True)
 	cnts,heading = sorted_contours[:2]
@@ -30,6 +34,9 @@ def crop(thresh,old_pts):
 	return pts
 
 def extract(keyboard,file):
+	'''
+	This function is modified to read keys from the detected text file
+	'''
 	print("Extracting keys from keyboard")
 	location = []
 	kcontours,_ = cv2.findContours(keyboard,cv2.RETR_TREE,cv2.CHAIN_APPROX_NONE)
@@ -67,6 +74,9 @@ def mask(frame):
 	return opening
 
 def display(pressed,text,frame,typed,shift,caps):
+	'''
+	This function is modified to work with shift, caps and backspace
+	'''
 	for i in pressed:
 		if(text[i]=='←'): 
 			typed = typed[:-1]
@@ -95,7 +105,7 @@ while(True):
 	thresh = cv2.adaptiveThreshold(cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY), 
 		255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY_INV,15,15)
 	pts1,title = crop(thresh,[pts1,title])
-
+	# Heading consists of file to be read for keyboard layout.
 	N = cv2.getPerspectiveTransform(title,pts3)
 	heading = cv2.warpPerspective(frame,N,(450,120))
 	cv2.imshow('heading',heading)
@@ -104,11 +114,13 @@ while(True):
 	keyboard = cv2.warpPerspective(frame,M,(640,480))
 	if not (pts1-pts2).any():
 		continue
+	# The text in the image is recognized using pytesseract library
 	file_p = (pytesseract.image_to_string(heading).lower()).replace('\n', '')
-
+	# The file should be of the format keyboard{number}.txt 
+	# for ex - keyboard4.txt
 	if re.search('^keyboard(?:[123456890]{1})$',file_p):
 		old_file,new_file = new_file,file_p
-
+		# Update the keyboard layout if the name changes
 		if old_file!=new_file:
 			print('NEW KEYBOARD DETECTED')
 			_,board = cv2.threshold(cv2.warpPerspective(thresh,M,(640,480)),
@@ -134,9 +146,10 @@ while(True):
 				cv2.putText(frame,text[n[0]],(5+r,40),cv2.FONT_HERSHEY_PLAIN,3,(255,255,255),3)
 				r += 30
 
-	if count% 6 == 5:
+	if count% 10 == 5:
 		pressed = touched.intersection(touched_1)
 		touched_1 = touched
+	# Implementation of caps
 	if len(pressed)==1 and text[list(pressed)[0]]=='↑':
 		caps = not caps
 	else:
