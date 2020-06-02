@@ -57,4 +57,20 @@ The keyboard should be able to read user's input and give corresponding output.
 + Finished code for [Invisibility Cloak](https://github.com/Sudhansh6/Virtual-Keyboard/blob/master/cloak.py)
 + Finished OpenCV part of [Sudoku code](https://github.com/Sudhansh6/Virtual-Keyboard/blob/master/sudoku.py)
 
+*30-04-20 to 14-05-20*
++ Optimized OpenCV part of [Sudoku code]
++ Tried to implement machine learning for digit recognition.
++ Trained a keras model from custom dataset to recognise digits from sudoku board.
++ Looked into pyTesseract for recognising digits.
+
+*20-05-20 to 22-05-20*
++ Started working on code for Virtual Keyboard.
++ Finsihed Virtual Keyboard code for one keyboard without shift and caps implementation.
+
+*23-05-20 to 26-05-20*
++ Implemented shift, caps and backspace keys in the code.
++ Reviewed and optimised the code. Click here for optimized version.
++ Wrote code so that the program works for multiple keyboard layouts.
+
+----------------------------------------------- END OF PROJECT --------------------------------------------
 
