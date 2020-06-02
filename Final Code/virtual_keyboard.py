@@ -42,7 +42,7 @@ def extract(keyboard,file):
 	kcontours,_ = cv2.findContours(keyboard,cv2.RETR_TREE,cv2.CHAIN_APPROX_NONE)
 	for cnt in kcontours:
 		cnt = cv2.approxPolyDP(cnt, 0.02*cv2.arcLength(cnt, True), True)
-		if len(cnt) == 4 and 12000>cv2.contourArea(cnt) and cv2.contourArea(cnt)> 400 and cv2.isContourConvex(cnt):
+		if len(cnt) == 4 and 15000>cv2.contourArea(cnt) and cv2.contourArea(cnt)> 400 and cv2.isContourConvex(cnt):
 			a = cnt.reshape(-1, 2)
 			c = np.argsort(np.sum(a,axis = 1))
 			if(a[c[1]][0] < a[c[2]][0]):
